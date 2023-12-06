@@ -1,0 +1,16 @@
+services:
+  db:
+    container_name: mysql
+    image: mysql
+    environment:
+      - MYSQL_DATABASE=larareact_movie
+      - MYSQL_ROOT_PASSWORD=root
+    restart: always
+    ports:
+      - 3306:3306
+    volumes:
+      - mysql_database:/var/lib/mysql
+
+volumes:
+  mysql_database:
+    external: true
